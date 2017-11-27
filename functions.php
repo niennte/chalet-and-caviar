@@ -50,7 +50,7 @@ function custom_post_type() {
 		'description'         => __( 'Chalet info', 'chalet-and-caviar' ),
 		'labels'              => $labels,
 		// Features this CPT supports in Post Editor
-		'supports'            => array( 'title', 'editor', 'property-type', 'thumbnail', 'comments', 'revisions', 'custom-fields', ),
+		'supports'            => array( 'title', 'editor', 'category', 'property-type', 'thumbnail', 'revisions', 'custom-fields', ),
 		// You can associate this CPT with a taxonomy or custom taxonomy. 
 		'taxonomies'          => array( 'property-type', 'categories' ),
 		/* A hierarchical CPT is like Pages and can have
@@ -102,16 +102,13 @@ function add_categories_to_chalet(){
  * @param array $post_types
  * @return array Array of post types Video Background should use
  */
+/*
 function themeprefix_vidbg_post_types( $post_types ) {
-	/**
-	 * list the post types you would like Video Background
-	 * to use in the form of an array
-	 */
 	$post_types = array( 'chalet', 'page', 'post' );
 	return $post_types;
 }
 add_filter( 'vidbg_post_types', 'themeprefix_vidbg_post_types' );
-
+*/
 
 /**
  * Support for Google Maps API
@@ -119,6 +116,8 @@ add_filter( 'vidbg_post_types', 'themeprefix_vidbg_post_types' );
  * @param $api
  * @return mixed
  */
+
+/*
 function my_acf_google_map_api( $api ){
 
 	$api['key'] = 'AIzaSyCCd5yApgSR3BYKV5KKfCtJG5bi2E7h78w';
@@ -128,6 +127,6 @@ function my_acf_google_map_api( $api ){
 }
 
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
-
+*/
 
 
