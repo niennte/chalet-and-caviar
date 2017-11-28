@@ -241,7 +241,7 @@ while (have_posts()):
 
 		if ($media_display === 'isotope') $media_content.=
 			'<div id="gallery-' . $rand_id . '" class="isotope-system post-media">
-				<div class="isotope-wrapper half-gutter">
+				<div class="isotope-wrapper no-gutter">
 	      	<div class="isotope-container isotope-layout style-masonry" data-type="masonry" data-layout="masonry" data-lg="1000" data-md="600" data-sm="480">';
 
 		foreach ($media_array as $key => $value)
@@ -257,6 +257,7 @@ while (have_posts()):
 			{
 				$block_data['single_width'] = 4;
 				$block_data['classes'][] = 'tmb-iso-w4';
+				$block_data['classes'][] = 'tmb-img-ratio';
 			}
 			else $block_data['single_width'] = $media_size;
 			$block_data['single_style'] = $style;
