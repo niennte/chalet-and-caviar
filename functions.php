@@ -22,7 +22,7 @@ add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
 
 
 /*
-* Creating a function to create our CPT
+* Create the chalet CPT.
 */
 
 function custom_post_type() {
@@ -82,6 +82,30 @@ function custom_post_type() {
 */
 
 add_action( 'init', 'custom_post_type', 0 );
+
+
+// Create property-type tazonomie
+add_action( 'init', 'create_chalet_tax' );
+
+function create_chalet_tax() {
+	register_taxonomy(
+		'property-type',
+		'chalet',
+		array(
+			'label' => __( 'Property Type' ),
+			'rewrite' => array( 'slug' => 'property-type' ),
+			'hierarchical' => true,
+		)
+	);
+}
+
+
+/*
+add_action('init','add_property-types_to_chalet');
+function add_property-types_to_chalet(){
+	register_taxonomy_for_object_type('property-type', 'chalet');
+}
+*/
 
 
 add_action('init','add_categories_to_chalet');
