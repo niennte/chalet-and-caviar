@@ -564,6 +564,14 @@ while (have_posts()):
 		}
 		$sidebar_content = ob_get_clean();
 
+		/** Hatchet tweak to dynamically populate the map in sidebar */
+                $GPS = do_shortcode('[vc_acf field_group="114" field_from_114="field_5a1de450db7e2"]');
+                list($latVal, $lonVal) = explode(",", strip_tags($GPS));
+                // these guys need to validate
+                $sidebar_content = str_replace("LAT_PH", $latVal, $sidebar_content);
+                $sidebar_content = str_replace("LON_PH", $lonVal, $sidebar_content);
+
+
 		/** Create html with sidebar **/
 
 		if ($footer_content !== '') {
