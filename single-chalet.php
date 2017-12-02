@@ -241,7 +241,7 @@ while (have_posts()):
 
 		if ($media_display === 'isotope') $media_content.=
 			'<div id="gallery-' . $rand_id . '" class="isotope-system post-media">
-				<div class="isotope-wrapper half-gutter">
+				<div class="isotope-wrapper no-gutter">
 	      	<div class="isotope-container isotope-layout style-masonry" data-type="masonry" data-layout="masonry" data-lg="1000" data-md="600" data-sm="480">';
 
 		foreach ($media_array as $key => $value)
@@ -282,6 +282,9 @@ while (have_posts()):
 			$block_data['tmb_data'] = array();
 			$block_layout['media'] = array();
 			$block_layout['icon'] = array();
+			
+			$block_data['images_size'] = 'one-one';
+
 			$media_html = uncode_create_single_block($block_data, $rand_id, 'masonry', $block_layout, $lightbox_classes, false, true);
 			if ($media_display !== 'isotope') $media_content.= '<div class="post-media">' . $media_html . '</div>';
 			else
@@ -500,7 +503,7 @@ while (have_posts()):
 		{
 			if ($sidebar_fill === 'on')
 			{
-				$sidebar_inner_padding.= ' std-block-padding';
+				$sidebar_inner_padding.= ' no-block-padding';
 				$sidebar_padding.= $sidebar_bg_color;
 				$expand_col = ' unexpand';
 				if ($limit_content_width === '')
@@ -509,7 +512,7 @@ while (have_posts()):
 					$footer_classes = ' std-block-padding no-top-padding';
 					if (!$with_builder)
 					{
-						$main_classes.= ' std-block-padding';
+						$main_classes.= 'no-h-padding no-block-padding doubleLeft';
 					}
 				}
 				else
@@ -517,7 +520,7 @@ while (have_posts()):
 					$row_classes.= ' no-top-padding';
 					if (!$with_builder)
 					{
-						$main_classes.= ' double-top-padding';
+						$main_classes.= ' no-h-padding';
 					}
 				}
 			}
