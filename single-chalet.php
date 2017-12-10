@@ -266,9 +266,11 @@ while (have_posts()):
 			{
 				$block_data['classes'][] = 'tmb-overlay-anim';
 				$block_data['classes'][] = 'tmb-overlay-text-anim';
-				$block_data['single_icon'] = 'fa fa-plus2';
+				$block_data['classes'][] = 'tmb-image-anim';
+				$block_data['single_icon'] = 'fa fa-search-plus t-icon-size-xl';
 				$block_data['overlay_color'] = ($style == 'light') ? 'style-black-bg' : 'style-white-bg';
-				$block_data['overlay_opacity'] = '20';
+				$block_data['overlay_color'] = 'style-dark-bg';
+				$block_data['overlay_opacity'] = '50';
 				$lightbox_classes = array();
 				$lightbox_classes['data-noarr'] = false;
 			}
