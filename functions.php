@@ -50,9 +50,9 @@ function custom_post_type() {
 		'description'         => __( 'Chalet info', 'chalet-and-caviar' ),
 		'labels'              => $labels,
 		// Features this CPT supports in Post Editor
-		'supports'            => array( 'title', 'editor', 'category', 'property-type', 'thumbnail', 'revisions', 'custom-fields', ),
+		'supports'            => array( 'title', 'editor', 'excerpt', 'category', 'property-type', 'thumbnail', 'revisions', 'custom-fields', ),
 		// You can associate this CPT with a taxonomy or custom taxonomy. 
-		'taxonomies'          => array( 'property-type', 'categories' ),
+		'taxonomies'          => array( 'property-type', 'property-category' ),
 		/* A hierarchical CPT is like Pages and can have
         * Parent and child items. A non-hierarchical CPT
         * is like Posts.
@@ -84,10 +84,36 @@ function custom_post_type() {
 add_action( 'init', 'custom_post_type', 0 );
 
 
-// Create property-type tazonomie
+// Create property-type taxonomie
 add_action( 'init', 'create_chalet_tax' );
 
 function create_chalet_tax() {
+
+	// Add new taxonomy, make it hierarchical (like categories)
+	$labels = array(
+		'name'              => _x( 'Property type', 'taxonomy general name', 'textdomain' ),
+		'singular_name'     => _x( 'Property Type', 'taxonomy singular name', 'textdomain' ),
+		'search_items'      => __( 'Search Property Types', 'textdomain' ),
+		'all_items'         => __( 'All Property Types', 'textdomain' ),
+		'edit_item'         => __( 'Edit Property Type', 'textdomain' ),
+		'update_item'       => __( 'Update Property Type', 'textdomain' ),
+		'add_new_item'      => __( 'Add New Property Type', 'textdomain' ),
+		'new_item_name'     => __( 'New Property Type Name', 'textdomain' ),
+		'menu_name'         => __( 'Property Type', 'textdomain' ),
+	);
+
+	$args = array(
+		'hierarchical'      => true,
+		'labels'            => $labels,
+		'show_ui'           => true,
+		'show_admin_column' => true,
+		'query_var'         => true,
+		'rewrite'           => array( 'slug' => 'property-type' ),
+	);
+
+	register_taxonomy( 'Property Type', array( 'chalet' ), $args );
+
+/*
 	register_taxonomy(
 		'property-type',
 		'chalet',
@@ -97,6 +123,7 @@ function create_chalet_tax() {
 			'hierarchical' => true,
 		)
 	);
+*/
 }
 
 
@@ -108,10 +135,12 @@ function add_property-types_to_chalet(){
 */
 
 
-add_action('init','add_categories_to_chalet');
+//add_action('init','add_categories_to_chalet');
+/*
 function add_categories_to_chalet(){
 	register_taxonomy_for_object_type('category', 'chalet');
 }
+*/
 
 
 
