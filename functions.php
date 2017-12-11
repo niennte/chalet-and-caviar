@@ -30,7 +30,7 @@ function custom_post_type() {
 	$labels = array(
 		'name'                => _x( 'chalet', 'Post Type General Name', 'chalet-and-caviar' ),
 		'singular_name'       => _x( 'Chalet', 'Post Type Singular Name', 'chalet-and-caviar' ),
-		'menu_name'           => __( '!!! Chalets', 'chalet-and-caviar' ),
+		'menu_name'           => __( '-> Chalets', 'chalet-and-caviar' ),
 		'parent_item_colon'   => __( 'Parent Chalet', 'chalet-and-caviar' ),
 		'all_items'           => __( 'All Chalets', 'chalet-and-caviar' ),
 		'view_item'           => __( 'View Chalet', 'chalet-and-caviar' ),
@@ -49,14 +49,8 @@ function custom_post_type() {
 		'label'               => __( 'Chalet', 'chalet-and-caviar' ),
 		'description'         => __( 'Chalet info', 'chalet-and-caviar' ),
 		'labels'              => $labels,
-		// Features this CPT supports in Post Editor
 		'supports'            => array( 'title', 'editor', 'excerpt', 'category', 'property-type', 'thumbnail', 'revisions', 'custom-fields', ),
-		// You can associate this CPT with a taxonomy or custom taxonomy. 
 		'taxonomies'          => array( 'property-type', 'property-category' ),
-		/* A hierarchical CPT is like Pages and can have
-        * Parent and child items. A non-hierarchical CPT
-        * is like Posts.
-        */
 		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
@@ -112,74 +106,5 @@ function create_chalet_tax() {
 	);
 
 	register_taxonomy( 'Property Type', array( 'chalet' ), $args );
-
-/*
-	register_taxonomy(
-		'property-type',
-		'chalet',
-		array(
-			'label' => __( 'Property Type' ),
-			'rewrite' => array( 'slug' => 'property-type' ),
-			'hierarchical' => true,
-		)
-	);
-*/
 }
-
-
-/*
-add_action('init','add_property-types_to_chalet');
-function add_property-types_to_chalet(){
-	register_taxonomy_for_object_type('property-type', 'chalet');
-}
-*/
-
-
-//add_action('init','add_categories_to_chalet');
-/*
-function add_categories_to_chalet(){
-	register_taxonomy_for_object_type('category', 'chalet');
-}
-*/
-
-
-
-
-
-
-/**
- * Define Video Background's post types
- *
- * @since 2.5.7
- * @author Push Labs
- * @param array $post_types
- * @return array Array of post types Video Background should use
- */
-/*
-function themeprefix_vidbg_post_types( $post_types ) {
-	$post_types = array( 'chalet', 'page', 'post' );
-	return $post_types;
-}
-add_filter( 'vidbg_post_types', 'themeprefix_vidbg_post_types' );
-*/
-
-/**
- * Support for Google Maps API
- *
- * @param $api
- * @return mixed
- */
-
-/*
-function my_acf_google_map_api( $api ){
-
-	$api['key'] = 'AIzaSyCCd5yApgSR3BYKV5KKfCtJG5bi2E7h78w';
-
-	return $api;
-
-}
-
-add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
-*/
-
 
