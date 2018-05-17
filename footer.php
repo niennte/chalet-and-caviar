@@ -128,7 +128,7 @@ if (($footer_text_content !== '' || $footer_icons !== '')) {
 		/** Hatchet tweak to dynamically populate the map in sidebar */
                 $GPS = do_shortcode('[vc_acf field_group="114" field_from_114="field_5a1de450db7e2"]');
                 list($latVal, $lonVal) = explode(",", strip_tags($GPS));
-//var_dump($latVal); die();
+
                 // these guys need to validate
                 $footer_content = str_replace("LAT_PH", $latVal, $footer_content);
                 $footer_content = str_replace("LON_PH", $lonVal, $footer_content);
