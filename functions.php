@@ -30,7 +30,7 @@ function custom_post_type() {
 	$labels = array(
 		'name'                => _x( 'chalet', 'Post Type General Name', 'chalet-and-caviar' ),
 		'singular_name'       => _x( 'Chalet', 'Post Type Singular Name', 'chalet-and-caviar' ),
-		'menu_name'           => __( '-> Chalets', 'chalet-and-caviar' ),
+		'menu_name'           => __( '-> Manage Chalets', 'chalet-and-caviar' ),
 		'parent_item_colon'   => __( 'Parent Chalet', 'chalet-and-caviar' ),
 		'all_items'           => __( 'All Chalets', 'chalet-and-caviar' ),
 		'view_item'           => __( 'View Chalet', 'chalet-and-caviar' ),
